@@ -4,6 +4,8 @@ TARGET=test.exe
 
 OBJS=glthread/glthread.o \
 	 graph.o 			 \
+	 net.o 				 \
+	 comm.o              \
 	 topologies.o 			
 
 test.exe:testapp.o ${OBJS}
@@ -20,6 +22,12 @@ graph.o:graph.c
 
 topologies.o:topologies.c
 	${CC} ${CFLAGS} -c -I . topologies.c -o topologies.o
+
+net.o:net.c
+	${CC} ${CFLAGS} -c -I . net.c -o net.o
+
+comm.o:comm.c
+	${CC} ${CFLAGS} -c -I . comm.c -o comm.o
 
 clean:
 	rm *.o 
